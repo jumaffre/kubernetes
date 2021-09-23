@@ -18,10 +18,12 @@ package etcd
 
 import (
 	"testing"
+	"fmt"
 
 	"k8s.io/kubernetes/test/integration/framework"
 )
 
 func TestMain(m *testing.M) {
+	fmt.Println("Hello", m)
 	framework.EtcdMain(m.Run)
 }

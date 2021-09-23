@@ -47,14 +47,17 @@ func GetEtcdStorageDataForNamespace(namespace string) map[schema.GroupVersionRes
 			Stub:             `{"metadata": {"name": "service1"}, "spec": {"externalName": "service1name", "ports": [{"port": 10000, "targetPort": 11000}], "selector": {"test": "data"}}}`,
 			ExpectedEtcdPath: "/registry/services/specs/" + namespace + "/service1",
 		},
+
 		gvr("", "v1", "podtemplates"): {
 			Stub:             `{"metadata": {"name": "pt1name"}, "template": {"metadata": {"labels": {"pt": "01"}}, "spec": {"containers": [{"image": "` + image + `", "name": "container9"}]}}}`,
 			ExpectedEtcdPath: "/registry/podtemplates/" + namespace + "/pt1name",
 		},
+		/*
 		gvr("", "v1", "pods"): {
 			Stub:             `{"metadata": {"name": "pod1"}, "spec": {"containers": [{"image": "` + image + `", "name": "container7", "resources": {"limits": {"cpu": "1M"}, "requests": {"cpu": "1M"}}}]}}`,
 			ExpectedEtcdPath: "/registry/pods/" + namespace + "/pod1",
 		},
+
 		gvr("", "v1", "endpoints"): {
 			Stub:             `{"metadata": {"name": "ep1name"}, "subsets": [{"addresses": [{"hostname": "bar-001", "ip": "192.168.3.1"}], "ports": [{"port": 8000}]}]}`,
 			ExpectedEtcdPath: "/registry/services/endpoints/" + namespace + "/ep1name",
@@ -100,6 +103,9 @@ func GetEtcdStorageDataForNamespace(namespace string) map[schema.GroupVersionRes
 			ExpectedEtcdPath: "/registry/controllers/" + namespace + "/rc1",
 		},
 		// --
+		*/
+
+		/*
 
 		// k8s.io/kubernetes/pkg/apis/apps/v1
 		gvr("apps", "v1", "daemonsets"): {
@@ -427,6 +433,7 @@ func GetEtcdStorageDataForNamespace(namespace string) map[schema.GroupVersionRes
 			ExpectedEtcdPath: "/registry/storageversions/sv1.test",
 		},
 		// --
+		*/
 	}
 
 	// add csinodes

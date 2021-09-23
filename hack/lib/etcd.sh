@@ -83,7 +83,7 @@ kube::etcd::start() {
     ETCD_LOGFILE=${ETCD_LOGFILE:-"/dev/null"}
   fi
   kube::log::info "etcd --advertise-client-urls ${KUBE_INTEGRATION_ETCD_URL} --data-dir ${ETCD_DIR} --listen-client-urls http://${ETCD_HOST}:${ETCD_PORT} --log-level=debug > \"${ETCD_LOGFILE}\" 2>/dev/null"
-  etcd --advertise-client-urls "${KUBE_INTEGRATION_ETCD_URL}" --data-dir "${ETCD_DIR}" --listen-client-urls "${KUBE_INTEGRATION_ETCD_URL}" --log-level=debug 2> "${ETCD_LOGFILE}" >/dev/null &
+  etcd --advertise-client-urls "${KUBE_INTEGRATION_ETCD_URL}" --data-dir "${ETCD_DIR}" --listen-client-urls "${KUBE_INTEGRATION_ETCD_URL}" --log-level=debug 2> /home/jumaffre/etcd.log &
   ETCD_PID=$!
 
   echo "Waiting for etcd to come up."
